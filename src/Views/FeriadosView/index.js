@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { FeriadosController } from '../../Controllers/FeriadosController';
 
 const FeriadosView = () => {
@@ -6,6 +7,7 @@ const FeriadosView = () => {
     const [feriados, setFeriados] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
+    const navigate = useNavigate();
 
     const feriadosController = new FeriadosController();
 
@@ -23,25 +25,33 @@ const FeriadosView = () => {
     };
 
     return (
-        <div>
-            <h1>Buscar Feriados</h1>
-            <input
-                type="text"
-                placeholder="Digite o ano"
-                value={year}
-                onChange={(e) => setYear(e.target.value)}
-            />
-            <button onClick={handleFetchFeriados} disabled={loading}>
-                {loading ? 'Carregando...' : 'Buscar Feriados'}
+        <div className="container">
+            <button className="back-button" onClick={() => navigate('/')}>
+                &#8592; Voltar
             </button>
+            <h1 className="title">Buscar Feriados</h1>
+            <div className="input-container">
+                <input
+                    type="text"
+                    className="year-input"
+                    placeholder="Digite o ano"
+                    value={year}
+                    onChange={(e) => setYear(e.target.value)}
+                />
+                <button onClick={handleFetchFeriados} disabled={loading}>
+                    {loading ? 'Carregando...' : 'Buscar Feriados'}
+                </button>
+            </div>
             {error && <p style={{ color: 'red' }}>{error}</p>}
-            <ul>
+            <div className="feriado-list">
                 {feriados.map((feriado, index) => (
-                    <li key={index}>
-                        <strong>{feriado.name}</strong> - {feriado.date.toLocaleDateString()} ({feriado.type})
-                    </li>
+                    <div key={index} className="feriado-card">
+                        <h2>{feriado.name}</h2>
+                        <p>{feriado.date.toLocaleDateString()}</p>
+                        <p>Tipo: {feriado.type}</p>
+                    </div>
                 ))}
-            </ul>
+            </div>
         </div>
     );
 };
