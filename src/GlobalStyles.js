@@ -6,7 +6,7 @@ const GlobalStyles = createGlobalStyle`
     --secondary-color: #6c757d;    
     --background-color: #f5f5f5;
     --font-color: #333;
-    --active-color:#00ffff;
+    --active-color: #00ffff;
   }
 
   * {
@@ -25,7 +25,7 @@ const GlobalStyles = createGlobalStyle`
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     width: 100vw;
   }
 
@@ -130,7 +130,6 @@ const GlobalStyles = createGlobalStyle`
     margin: 0.2rem 0;
   }
 
- 
   .back-button {
     position: absolute;
     top: 10px;
@@ -146,6 +145,67 @@ const GlobalStyles = createGlobalStyle`
 
   .back-button:hover {
     background-color: var(--active-color);
+  }
+
+  /* Ajustes para dispositivos móveis */
+  @media (max-width: 768px) {
+    .container {
+      width: 95vw;
+      padding: 1rem;
+    }
+
+    .title {
+      font-size: 2rem;
+    }
+
+    button {
+      font-size: 1rem;
+      padding: 0.8rem 1.5rem;
+    }
+
+    .input-container {
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .year-input {
+      margin-bottom: 1rem;
+      width: 100%;
+    }
+
+    .feriado-list {
+      grid-template-columns: 1fr;
+    }
+
+    .feriado-card {
+      padding: 0.8rem;
+      font-size: 1rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .container {
+      padding: 1rem;
+    }
+
+    .title {
+      font-size: 1.5rem;
+    }
+
+    button {
+      font-size: 0.9rem;
+      padding: 0.7rem 1rem;
+    }
+
+    .back-button {
+      font-size: 0.8rem;
+      padding: 0.3rem 0.6rem;
+    }
+
+    .feriado-card {
+      padding: 0.6rem;
+      font-size: 0.9rem;
+    }
   }
 `;
 

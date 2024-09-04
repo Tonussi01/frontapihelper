@@ -28,7 +28,7 @@ const FeriadosView = () => {
         <div className="container">
             <button className="back-button" onClick={() => navigate('/')}>
                 &#8592; Voltar
-            </button>
+            </button><br/><br/>
             <h1 className="title">Buscar Feriados</h1>
             <div className="input-container">
                 <input

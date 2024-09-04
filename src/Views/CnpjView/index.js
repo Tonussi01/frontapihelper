@@ -31,7 +31,7 @@ const CnpjView = () => {
         <div className="container">
             <button className="back-button" onClick={() => navigate('/')}>
                 &#8592; Voltar
-            </button>
+            </button><br/><br/>
             <h1 className="title">Consulta de CNPJ</h1>
             <div className="input-container">
                 <input
