@@ -203,7 +203,7 @@ const GlobalStyles = createGlobalStyle`
     }
 
     .feriado-card {
-      padding: 0.6rem;
+      padding: 0.67rem;
       font-size: 0.9rem;
     }
   }

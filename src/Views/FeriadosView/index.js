@@ -12,6 +12,15 @@ const FeriadosView = () => {
     const feriadosController = new FeriadosController();
 
     const handleFetchFeriados = async () => {
+
+        const yearInt = parseInt(year);
+
+        // Validação para garantir que o ano está entre 1900 e 2199
+        if (isNaN(yearInt) || yearInt < 1900 || yearInt > 2199) {
+            setError('Por favor, insira um ano válido entre 1900 e 2199.');
+            return;
+        }
+
         setLoading(true);
         setError(null);
         try {

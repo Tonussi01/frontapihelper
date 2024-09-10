@@ -14,13 +14,22 @@ const CnpjView = () => {
 
     const handleFetchCnpj = async () => {
         setError('');
+        setData(null); // Limpa os dados anteriores
+
         if (!cnpj || cnpj.length !== 14) {
             setError('Por favor, insira apenas os 14 números do CNPJ.');
             return;
         }
+
         try {
             const cnpjData = await cnpjController.getCnpjData(cnpj);
-            setData(cnpjData);
+
+            // Verificação se o CNPJ retornado está vazio ou inválido
+            if (!cnpjData || !cnpjData.razao_social) {
+                setError('O CNPJ informado não foi localizado no sistema. Confira os números e tente novamente.');
+            } else {
+                setData(cnpjData);
+            }
         } catch (error) {
             console.error("Erro ao buscar dados do CNPJ:", error);
             setError('Falha ao buscar dados do CNPJ. Por favor, tente novamente.');
