@@ -56,13 +56,16 @@ const CnpjView = () => {
             {data && (
                 <div className="cnpj-result"><br/>
                     <h2>Razão Social: {data.razao_social}</h2><br/>
+                    <p><strong>Nome Fantasia:</strong> {data.nome_fantasia}</p>
                     <p><strong>CNPJ:</strong> {data.cnpj}</p>
                     <p><strong>UF:</strong> {data.uf}</p>
+                    <p><strong>Município:</strong> {data.municipio}</p>
                     <p><strong>Bairro:</strong> {data.bairro}</p>
                     <p><strong>Logradouro:</strong> {data.logradouro}</p>
                     <p><strong>Capital Social:</strong> {data.capital_social.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</p>
                     <p><strong>Email:</strong> {data.email}</p>
-                    <p><strong>Município:</strong> {data.municipio}</p>
+                    <p><strong>Natureza Jurídica:</strong> {data.natureza_juridica}</p>                    
+                    <p><strong>Cnae Principal:</strong> {data.cnae_fiscal_descricao}</p>
 
                     {/* Seção de Sócios */}
                     <div className="expand-section">
